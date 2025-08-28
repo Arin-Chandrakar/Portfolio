@@ -19,7 +19,7 @@ function Background(){
 function AboutMe(){
   return(
     <div className='relative bg-pink-400 h-64 w-[900px] mx-auto mt-20'>
-      <h1 className='text-5xl pl-5 pt-4 h-1.5 '>Hi,</h1>
+      <h1 className='text-5xl pl-5 pt-4 h-1.5 '>Hi,How are you</h1>
     </div>
   )
 }
