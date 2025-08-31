@@ -62,7 +62,7 @@ function Experience(){
 function FaceCircle(){
     return(
         <div >
-          <img src="./public/Kobe.jpg" alt="" className='w-32 h-32 rounded-full mt-7 mb-7 mr-7 flex items-center justify-center font-bold' />
+          <img src="Kobe.jpg" alt="" className='w-32 h-32 rounded-full mt-7 mb-7 mr-7 flex items-center justify-center font-bold animate-none hover:animate-spin hover:[animation-duration:5s]' />
         </div>
     )
 }
