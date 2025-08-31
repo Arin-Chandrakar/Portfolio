@@ -61,8 +61,8 @@ function Experience(){
 
 function FaceCircle(){
     return(
-        <div className='bg-blue-600 w-32 h-32 rounded-full mt-7 mb-7 mr-7 flex items-center justify-center font-bold'>
-          Hi
+        <div >
+          <img src="./public/Kobe.jpg" alt="" className='w-32 h-32 rounded-full mt-7 mb-7 mr-7 flex items-center justify-center font-bold' />
         </div>
     )
 }
