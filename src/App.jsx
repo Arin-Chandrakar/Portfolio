@@ -1,11 +1,9 @@
 import './App.css'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { GridBackgroundDemo } from './components/BackgroundGrid'
 import { GithubContributions } from './components/githubcomp'
 import { createRoot } from 'react-dom/client'
-import { Canvas } from '@react-three/fiber'
-import { useLoader } from '@react-three/fiber'
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
+import { Football } from './components/FootballModel'
 
 
 function App() {
@@ -60,14 +58,32 @@ function Projects(){
 }
 
 function Experience(){
-  return <div className='bg-white w-[900px] mx-auto cursor-pointer'>
+  return <div className='bg-white w-[900px] mx-auto cursor-pointer' >
     Hi
   </div>
 }
 
 function FaceCircle(){
+  const faceRef=useRef(null);
+  useEffect(()=>{
+    const element=faceRef.current;
+    if(!element) return;
+
+    const handleEnter=(event)=>{
+      const xCoordinate=event.offsetX;
+      const yCoordinate=event.offsetY;
+      console.log(`Mouse moved at X-coordinate: ${xCoordinate} , Y-coordinate: ${yCoordinate} relative to the element.`);
+    }
+
+
+    element.addEventListener("mousemove",handleEnter);
+    return ()=>{
+      element.removeEventListener("mousemove",handleEnter);
+    }
+  },[])
+
     return(
-        <div >
+        <div id='facecircle' ref={faceRef}>
           <img src="Kobe.jpg" alt="" className='w-32 h-32 rounded-full mt-7 mb-7 mr-7 flex items-center justify-center font-bold animate-none hover:animate-spin hover:[animation-duration:5s]' />
         </div>
     )
@@ -75,15 +91,6 @@ function FaceCircle(){
 
 export default App
 
-function Football(){
-  const gltf=useLoader(GLTFLoader,"/scene.gltf")
-  return(
-    <div className='bg-pink-400 w-60 h-40 mx-auto'>
-      <Canvas className='w-40 h-40'>
-        <ambientLight />
-        <directionalLight position={[2, 2, 2]} />
-        <primitive object={gltf.scene} scale={[0.3,0.3,0.3]}/>
-      </Canvas>
-    </div>
-  ) 
+function faceCircleCoordinates(){
+  
 }
