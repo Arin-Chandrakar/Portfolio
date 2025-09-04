@@ -65,6 +65,9 @@ function Experience(){
 
 function FaceCircle(){
   const faceRef=useRef(null);
+  const [side,setSide]=useState(null)
+
+
   useEffect(()=>{
     const element=faceRef.current;
     if(!element) return;
@@ -72,19 +75,35 @@ function FaceCircle(){
     const handleEnter=(event)=>{
       const xCoordinate=event.offsetX;
       const yCoordinate=event.offsetY;
+
+      if(event.offsetX<element.offsetWidth/2){
+      setSide("left");
+      }else if(event.offsetX>element.offsetWidth/2){
+      setSide("right");
+      }
+
+      console.log(side)
       console.log(`Mouse moved at X-coordinate: ${xCoordinate} , Y-coordinate: ${yCoordinate} relative to the element.`);
     }
 
+    
+
+    console.log(side);
 
     element.addEventListener("mousemove",handleEnter);
     return ()=>{
       element.removeEventListener("mousemove",handleEnter);
     }
-  },[])
+  },[[],side])
+
+  // useEffect(()=>{
+  //   console.log("Side Changed :", side)
+  // },[side]);
 
     return(
-        <div id='facecircle' ref={faceRef}>
-          <img src="Kobe.jpg" alt="" className='w-32 h-32 rounded-full mt-7 mb-7 mr-7 flex items-center justify-center font-bold animate-none hover:animate-spin hover:[animation-duration:5s]' />
+        <div id='facecircle' >
+          <img src="Kobe.jpg" alt="" ref={faceRef} className='w-32 h-32 rounded-full mt-7 mb-7 mr-7 flex items-center justify-center font-bold animate-none ]' />
+            {/*hover:animate-spin hover:[animation-duration:5s  */}
         </div>
     )
 }
