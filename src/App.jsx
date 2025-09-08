@@ -5,6 +5,7 @@ import { GithubContributions } from './components/githubcomp'
 import { createRoot } from 'react-dom/client'
 import { Football } from './components/FootballModel'
 import { ChessBoard } from './components/ChessBoard'
+import {FloatingDock} from './components/Dock'
 
 
 function App() {
@@ -22,7 +23,13 @@ function Background(){
       <AboutMe/>
       <Projects/>
       <GithubContributions/>
-      <ChessBoard/>
+      <GithubContributions/>
+      <GithubContributions/>
+      {/* <ChessBoard/> */}
+      <FloatingDock  items={[
+    { title: "GitHub", href: "https://github.com/", icon: <img src="/github.png" alt="GitHub" className='rounded-full brightness-1500 hover:cursor-pointer'/> },
+    { title: "Portfolio", href: "/", icon: <img src="/internet.png" alt="Web" className='rounded-full filter invert hover:cursor-pointer ' /> },
+  ]}/>
     </div>
   )
 }

@@ -2,7 +2,7 @@ import { Chessboard } from 'react-chessboard';
 
 export function ChessBoard() {
   const chessboardOptions = {
-    // your config options here
+    onSquareClick
   };
 
   return <div className='w-[900px] h-70 mx-auto flex justify-between'>
