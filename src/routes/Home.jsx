@@ -5,7 +5,7 @@ import { Football } from '../components/FootballModel.jsx'
 import { ChessBoard } from '../components/ChessBoard'
 import {FloatingDock} from '../components/Dock.jsx'
 
-export function Background(){
+export function Home(){
   return(
     <div>
       {/* <GridBackgroundDemo/> */}
@@ -14,14 +14,6 @@ export function Background(){
       <Projects/>
       <GithubContributions/>
       {/* <ChessBoard/> */}
-      <FloatingDock  items={[
-    { title: "GitHub", href: "https://github.com/", icon: <img src="/github.png" alt="GitHub" className='rounded-full brightness-1500 hover:cursor-pointer'/> },
-    { title: "Portfolio", href: "/", icon: <img src="/internet.png" alt="Web" className='rounded-full filter invert hover:cursor-pointer ' /> },
-    { title: "Home", href: "/", icon: <img src="/home.png" alt="Web" className='rounded-full filter invert hover:cursor-pointer ' /> },
-    { title: "Blog", href: "/Blog", icon: <img src="/notebook.png" alt="Web" className='rounded-full filter invert hover:cursor-pointer ' /> },
-    { title: "Game", href: "/", icon: <img src="/internet.png" alt="Web" className='rounded-full filter invert hover:cursor-pointer ' /> },
-    { title: "Plan", href: "/", icon: <img src="/internet.png" alt="Web" className='rounded-full filter invert hover:cursor-pointer ' /> },
-  ]}/>
     </div>
   )
 }
