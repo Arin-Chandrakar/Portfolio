@@ -17,8 +17,6 @@ export function FullBlog({content}){
 
     const {slug}=useParams();
     
-    console.log("URL slug:", slug);
-    console.log("Available slugs:", Object.keys(blogs)); 
 
     const components={
         h1:(props)=><h1 className=" h-20 mt-20 text-5xl" {...props}/>,
