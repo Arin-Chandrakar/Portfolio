@@ -1,9 +1,5 @@
-import { useState, useRef, useEffect } from 'react'
 import { GithubContributions } from "../components/githubcomp.jsx"
-import { createRoot } from 'react-dom/client'
 import { Football } from '../components/FootballModel.jsx'
-import { ChessBoard } from '../components/ChessBoard'
-import {FloatingDock} from '../components/Dock.jsx'
 
 export function Home(){
   return(
@@ -13,6 +9,8 @@ export function Home(){
       <AboutMe/>
       <Projects/>
       <GithubContributions/>
+      <Skills/>
+      <Footer/>
       {/* <ChessBoard/> */}
     </div>
   )
@@ -35,7 +33,7 @@ function NameIntro(){
 function AboutMe(){
   
   return(
-    <div className='h-48 w-[900px]  mx-auto group pl-5'>
+    <div className='w-[900px] mb-8  mx-auto group pl-5'>
       <h1 className='font-sans font-bold text-3xl text-white'>About</h1>
       <div className='prose font-sans font-medium text-base text-white opacity-80 text-pretty'>
         <p className='pt-2'>Things that I love: technology, books, football and barcelona.</p>
@@ -49,12 +47,12 @@ function AboutMe(){
 
 
 function Projects(){
-  return <div className='w-[900px] h-40 mx-auto pl-5' >
+  return <div className='w-[900px] mx-auto pl-5 mb-8'>
     <div className='font-sans font-bold text-3xl text-white'>
       <h2>Projects</h2>
       <div className='pt-2 flex justify-between'>
         <div className='font-medium text-2xl'>
-          <h2>WanderLust</h2>
+          <h2 id='ProjectH2'>WanderLust</h2>
           <div className='font-medium text-sm opacity-80 text-pretty'>
             <p>Airbnb reimagined into the indian culture</p>
           </div>
@@ -71,7 +69,7 @@ function Projects(){
 
       <div className='pt-2 flex justify-between'>
         <div className='font-medium text-2xl'>
-          <h2>Flappy Bird</h2>
+          <h2 id='ProjectH2'>Flappy Bird</h2>
           <div className='font-medium text-sm opacity-80 text-pretty'>
             <p>Do i really need to describe this? Just play and enjoy the nostalgia</p>
           </div>
@@ -90,54 +88,36 @@ function Projects(){
   </div>
 }
 
-function FaceCircle(){
-  const faceRef=useRef(null);
-  const [side,setSide]=useState(null)
-
-
-  useEffect(()=>{
-    const element=faceRef.current;
-    if(!element) return;
-
-    const handleEnter=(event)=>{
-      const xCoordinate=event.offsetX;
-      const yCoordinate=event.offsetY;
-
-      if(event.offsetX<element.offsetWidth/2){
-      setSide("left");
-      }else if(event.offsetX>element.offsetWidth/2){
-      setSide("right");
-      }else{
-        setSide(null)
-      }
-
-      console.log(side)
-      console.log(`Mouse moved at X-coordinate: ${xCoordinate} , Y-coordinate: ${yCoordinate} relative to the element.`);
-    }
-
-    const handleLeave=()=>{
-      setSide(null);
-    };
-
-    element.addEventListener("mousemove",handleEnter);
-    element.addEventListener("mouseleave",handleLeave)
-    return ()=>{
-      element.removeEventListener("mousemove",handleEnter);
-      element.removeEventListener("mouseleave",handleLeave);
-    }
-  },[side])
-
-  // useEffect(()=>{
-  //   console.log("Side Changed :", side)
-  // },[side]);
-
-    return(
-        <div id='facecircle' >
-          <img src="Kobe.jpg" alt="" ref={faceRef} className="w-32 h-32 rounded-full mt-7 mb-7 mr-7 flex items-center justify-center font-bold animate-none" 
-           style={{transform: side === "left" ? "rotateY(-50deg)" : side === "right" ? "rotateY(50deg)" : "rotateY(0deg)", transition: "transform 0.3s ease"}}/>
-            {/*hover:animate-spin hover:[animation-duration:5s  */}
-        </div>
-    )
+function Skills(){
+  return <div>
+    <div className='w-[900px] flex mx-auto pl-5 font-bold text-3xl text-white pb-2'>
+      Skills
+    </div>
+    <div className='w-[900px] flex mx-auto pl-5 space-x-1'>
+      <button  className="px-4 py-1 rounded-xl border border-black bg-white text-black text-sm hover:shadow-[4px_4px_0px_0px_rgba(255,255,255)] transition duration- font-bold">React</button>
+      <button  className="px-4 py-1 rounded-xl border border-black bg-white text-black text-sm hover:shadow-[4px_4px_0px_0px_rgba(255,255,255)] transition duration- font-bold">Next.js</button>
+      <button  className="px-4 py-1 rounded-xl border border-black bg-white text-black text-sm hover:shadow-[4px_4px_0px_0px_rgba(255,255,255)] transition duration- font-bold">TypeScript</button>
+      <button  className="px-4 py-1 rounded-xl border border-black bg-white text-black text-sm hover:shadow-[4px_4px_0px_0px_rgba(255,255,255)] transition duration- font-bold">Postgres</button>
+      <button  className="px-4 py-1 rounded-xl border border-black bg-white text-black text-sm hover:shadow-[4px_4px_0px_0px_rgba(255,255,255)] transition duration- font-bold">Figma</button>
+      <button  className="px-4 py-1 rounded-xl border border-black bg-white text-black text-sm hover:shadow-[4px_4px_0px_0px_rgba(255,255,255)] transition duration- font-bold">C++</button>
+    </div>
+  </div>
+  
 }
 
+
+function Footer(){
+  return <div>
+    <hr className="border-t border-white my-10 w-[900px] mx-auto "/>
+    <div className='text-white font-bold w-[900px] text-2xl mx-auto flex pl-5 justify-center h-80 items-center gap-2'>
+    <div>Say Hi on</div>
+     <div className='w-5 h-5 '>
+      <a alt="My X link ain't loading, try again some other time" href="https://x.com/arinntwt" className='filter invert h-5 w-5'>
+      <img src="/twitter.png"  alt="My X link ain't loading, try again some other time" />
+      </a>
+     </div>
+  </div>
+  </div>
+  
+}
 

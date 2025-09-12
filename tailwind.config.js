@@ -2,10 +2,14 @@
 module.exports = {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}", // your project files
+    "./src/**/*.{js,ts,jsx,tsx,mdx,md}", // your project files
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        myfont:['MyFont','sans-serif']
+      }
+    },
   },
-  plugins: [require('@tailwindcss/line-clamp'),],
+  plugins: [require('@tailwindcss/line-clamp'),require('@tailwindcss/typography')],
 }
