@@ -15,8 +15,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/Home" element={<Home/>}/>
-      <Route path="/Vlog" element={<BlogTable/>}/>
-      <Route path="/Vlog/:slug" element={<FullBlog/>}/>
+      <Route path="/Blog" element={<BlogTable/>}/>
+      <Route path="/Blog/:slug" element={<FullBlog/>}/>
       <Route path="/chess" element={<ChessPage/>}/>
     </Routes>    
     <FloatingDock  items={[
