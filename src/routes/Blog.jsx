@@ -1,6 +1,6 @@
 import{motion} from "motion/react";
 import {MDXProvider} from '@mdx-js/react'
-import Reality from "/BlogPosts/Reality.md"
+import Reality from "../BlogPosts/Reality.md"
 import {Blogcard} from "../components/BlogCard"
 
 export function BlogTable(){
