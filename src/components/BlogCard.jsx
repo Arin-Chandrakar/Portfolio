@@ -19,7 +19,7 @@ export function Blogcard({content,slug}){
     // let time=now.getHours()+":"+now.getMinutes()+":"+now.getSeconds();
 
     return <motion.div
-    onClick={()=>navigate(`/Vlog/${slug}`)}
+    onClick={()=>navigate(`/Blog/${slug}`)}
     whileHover={{scale:1.05}}
     transition={{duration:0.3}}
     className="bg-[#171717] w-[900px] mx-auto mt-4 p-3 h-22 rounded-md ">      
